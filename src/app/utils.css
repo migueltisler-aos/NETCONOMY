@@ -1,0 +1,37 @@
+/* Innovation Connect Utility Tokens */
+
+.text-night-900 {
+  color: var(--night-900);
+}
+
+.bg-night-900 {
+  background-color: var(--night-900);
+}
+
+.text-accent-red {
+  color: var(--accent-red);
+}
+
+.bg-accent-red {
+  background-color: var(--accent-red);
+}
+
+.text-accent-blue {
+  color: var(--accent-blue);
+}
+
+.bg-accent-blue {
+  background-color: var(--accent-blue);
+}
+
+.glass-border {
+  border-color: var(--glass-border);
+}
+
+.hover\:bg-glass:hover {
+  background-color: rgba(148, 163, 184, 0.12);
+}
+
+.focus\:ring-accent:focus {
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.35);
+}
