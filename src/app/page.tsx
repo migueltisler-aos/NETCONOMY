@@ -1,4 +1,7 @@
 import HeroSection from '@/components/HeroSection'
+import StrategyFramework from '@/components/StrategyFramework'
+import SuccessStories from '@/components/SuccessStories'
+import UseCases from '@/components/UseCases'
 import EventsSection from '@/components/EventsSection'
 import InnovationBoard from '@/components/InnovationBoard'
 import MiguelChat from '@/components/MiguelChat'
@@ -83,6 +86,19 @@ export default function Home() {
       <div style={{ paddingTop: '10rem' }}>
         <HeroSection />
       </div>
+
+      {/* Strategy Framework */}
+      <StrategyFramework />
+
+      {/* Success Stories */}
+      <section id="stories">
+        <SuccessStories />
+      </section>
+
+      {/* Use Cases */}
+      <section id="use-cases">
+        <UseCases />
+      </section>
 
       {/* Events Section */}
       <section id="events">

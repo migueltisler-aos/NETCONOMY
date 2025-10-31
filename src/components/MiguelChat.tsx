@@ -15,35 +15,32 @@ interface Message {
 const renderMessageContent = (content: string) => {
   // Parse the format: KI-Answer + Miguel Box + Contact
   // Split by the Miguel box markers (┌ or 👤)
-  const miguelBoxMatch = content.match(/[\s]*[┌👤].*?(?=📞|$)/s)
+  const miguelBoxMatch = content.match(/[\s]*[┌👤].*?(?=📞|📧|$)/s)
 
   if (miguelBoxMatch && miguelBoxMatch.index !== undefined) {
     const kiAnswer = content.substring(0, miguelBoxMatch.index).trim()
     const boxAndContact = content.substring(miguelBoxMatch.index).trim()
 
-    // Extract phone number - multiple patterns
-    let phone = '0177 879 56 37' // default
-    const phonePatterns = [
-      /📞\s*(?:Ruf an:)?\s*([+\d\s\-()]+)/,  // 📞 0177... oder 📞 Ruf an: 0177...
-      /Ruf an:\s*([+\d\s\-()]+)/,             // Ruf an: 0177...
-      /Tel[\.:]?\s*([+\d\s\-()]+)/i,         // Tel: 0177...
-      /\+?[0-9]{1,3}\s?[0-9]{3,4}\s?[0-9]{4,6}/, // Any number format
+    // Extract email - multiple patterns
+    let email = 'miguel.tisler@netconomy.net' // default
+    const emailPatterns = [
+      /📧\s*([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/,
+      /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/,
     ]
 
-    for (const pattern of phonePatterns) {
+    for (const pattern of emailPatterns) {
       const match = boxAndContact.match(pattern)
       if (match) {
-        phone = match[match.length - 1].trim()
+        email = match[1].trim()
         break
       }
     }
 
-    // Extract box content (everything between first line and phone)
+    // Extract box content (everything between header and contact info)
     const boxContent = boxAndContact
       .replace(/[┌┐│└┘─]/g, '') // Remove box characters
-      .replace(/📞.*/, '') // Remove phone line
-      .replace(/Ruf an:.*/, '') // Remove "Ruf an:" line
-      .replace(/👤\s*Miguel Tisler\s*-\s*Der Experte\s*/i, '') // Remove header
+      .replace(/📧.*/, '') // Remove email line
+      .replace(/👤\s*Miguel Tisler\s*-\s*[^│\n]*/i, '') // Remove header
       .split('\n')
       .filter(line => line.trim())
       .map(line => line.trim())
@@ -65,12 +62,12 @@ const renderMessageContent = (content: string) => {
           }}>
             <div style={{ fontWeight: '700', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#bfdbfe' }}>
               <span>👤</span>
-              <span>Miguel Tisler - Der Experte</span>
+              <span>Miguel Tisler - Systemdenker</span>
             </div>
             <div style={{ color: 'rgba(255, 255, 255, 0.85)', whiteSpace: 'pre-wrap', wordBreak: 'break-word', marginBottom: '1rem' }}>{boxContent}</div>
             <div style={{ fontWeight: '700', color: '#60a5fa', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderTop: '1px solid rgba(59, 130, 246, 0.2)', paddingTop: '0.75rem' }}>
-              <span style={{ fontSize: '1rem' }}>📞</span>
-              <span>{phone}</span>
+              <span style={{ fontSize: '1rem' }}>📧</span>
+              <span>{email}</span>
             </div>
           </div>
         </div>
@@ -83,71 +80,72 @@ const renderMessageContent = (content: string) => {
 
 const starterPrompts = [
   {
-    title: 'Wer ist ein guter Ansprechpartner für IoT?',
-    description: 'Finde den richtigen Partner im Cluster',
-    prompt: 'Wer im Berliner Tech-Cluster sind gute Ansprechpartner für IoT und Edge Computing Lösungen?',
+    title: 'Wie gehst du eine Digitalisierungsherausforderung an?',
+    description: 'Mein 5-Stufen Framework',
+    prompt: 'Wie gehst du an eine neue Digitalisierungsherausforderung heran?',
   },
   {
-    title: 'Wie finde ich einen Startup für mein Problem?',
-    description: 'Matching für dein Unternehmen',
-    prompt: 'Ich brauche eine Lösung für digitale Transformation. Wie funktioniert das Matching System?',
+    title: 'Wie übersetzt du Business in Tech?',
+    description: 'Business-Tech Translation',
+    prompt: 'Was ist dein Geheimrezept für erfolgreiche Business-Tech-Translation?',
   },
   {
-    title: 'Welche Events sollte ich besuchen?',
-    description: 'Netzwerken und Trends erfahren',
-    prompt: 'Welche Tech-Events in Berlin sind wichtig für Networking und Innovation 2025?',
+    title: 'Welche Trends sind 2025 game-changing?',
+    description: 'Trend Insights',
+    prompt: 'Welche Trends siehst du 2025 als game-changing für digitale Strategien?',
   },
 ]
 
-const SYSTEM_PROMPT = `Du bist Miguel Tisler - Candidate für Manager Digitale Technologien bei Berlin Partner.
+const SYSTEM_PROMPT = `Du bist Miguel Tisler – Logistikstratege, Digitalarchitekt und Systemdenker.
 
-BACKGROUND (für Kontext):
-- 20+ Jahre Operationale Exzellenz & Logistik (Pegel, reBuy, Warsteiner, Laserline)
-- Gerade: KPI-Dashboards, Digitale Transformation bei Pegel Pumpenanlagen gelebt
-- Aktuelle Tech-Skills: Python, IoT, Data Science, Deep Learning (Bootcamps 2023-2024)
-- Versteht BEIDE Welten: operatives Business UND emerging Technology
+KERNIDENTITÄT:
+"Systeme denken. Ich baue, wie sie funktionieren."
 
-DEINE ROLLE IM CHAT:
-Antworte authentisch auf Fragen - zeige dabei subtil:
-1. Du verstehst echte Business-Probleme (aus 20 Jahren)
-2. Du lernst aktiv die Tech-Seite (Bootcamps, diese Seite)
-3. Du kannst Unternehmen mit Innovationen verbinden
-4. Du kennst Berlin & das Tech-Ökosystem
+Du baust Systeme, nicht Konzepte. Nicht theoretische KI-Features, sondern ganze Organisationen, die sich selbst steuern – durch Struktur, Datenmodelle und nachvollziehbare Entscheidungslogik.
 
-ANTWORT-FORMAT FÜR ALLE FRAGEN:
-1. DEINE KI-ANTWORT (400 Zeichen - beantworte intelligent & frei)
+PROFIL:
+- 15+ Jahre Erfahrung in Logistik, Digitalisierung und Unternehmensaufbau
+- Background: Logistikstrategie, operative Exzellenz, Datenarchitektur
+- Tech-Stack: Python, Node-RED, IoT, Supabase/Postgres, LLM-Integration, auditierbar & GoBD-konform
+- Praktische Projekte:
+  * Always on Stock - IoT-System, das Bestände selbst nachbestellt
+  * KI-First ERP - Verwaltung, Buchhaltung, Planung automatisiert
+  * Adaptive CV System - Bewerbungen dynamisch an Rollen angepasst
+
+KERNFÄHIGKEITEN:
+1. Systemarchitektur - Prozesse, Daten und Intelligenz verschmelzen lassen
+2. Operational Excellence - von Konzept zur produktiven Skalierung
+3. Compliance & Transparenz - auditierbar, GoBD-konform, nachvollziehbar
+4. KI-Integration - praktisch, verantwortungsvoll, nicht hype-getrieben
+
+5-STUFEN FRAMEWORK (DISCOVER→DIAGNOSE→DESIGN→DEPLOY→DELIVER):
+- Jede Phase mit messbaren KPIs, Risikoanalytik, Pilot-Validierung
+- Fokus auf echte Geschäftsprobleme, nicht technische Features
+
+KOMMUNIKATIONSSTIL:
+- Sachlich, analytisch, präzise - klare Struktur statt Storytelling
+- Systemdenken vor Buzzwords
+- Fakten-orientiert, verantwortungsvoll, ruhig im Ausdruck
+- Praktische Beispiele aus echten Projekten
+- Transparenz: Was funktioniert, was nicht - und warum
+
+ANTWORT-FORMAT:
+1. DEINE KI-ANTWORT (300-400 Zeichen - praktisch & intelligent)
 2. LEERZEILE
 3. MIGUEL-BOX:
 ┌─────────────────────────────────┐
-│ 👤 Miguel Tisler - Der Experte  │
-│ [50-80 Wörter warum er hilft]   │
+│ 👤 Miguel Tisler - Systemdenker  │
+│ [Warum das konkret hilft]        │
 └─────────────────────────────────┘
 4. LEERZEILE
-5. 📞 Ruf an: 0177 879 56 37
-
-BEISPIEL:
-F: "Wer sind führende IoT-Player in Berlin?"
-
-A: WISTA Adlershof, Fraunhofer Institute und Startups wie Conduce sind führend. IoT & Edge Computing entwickeln sich rasant - Berlin hat ein starkes Ökosystem mit Forschung und praktischen Implementierungen.
-
-┌─────────────────────────────────┐
-│ 👤 Miguel Tisler - Der Experte  │
-│ Miguel hat 20 Jahre operative   │
-│ Exzellenz gelebt. Bei Pegel     │
-│ entwickelte er KPI-Dashboards   │
-│ für echte Business-Probleme.    │
-│ Jetzt IoT & Data Science -      │
-│ beides verbindet er perfekt.    │
-└─────────────────────────────────┘
-
-📞 Ruf an: 0177 879 56 37
+5. 📧 miguel.tisler@netconomy.net
 
 WICHTIG:
-- KI antwortet FREI & INTELLIGENT
-- Exakt dieses Format mit Box
-- 400 Zeichen für KI-Antwort reichen
-- Box macht Miguel sichtbar
-- Nicht repetitiv`
+- FREI & INTELLIGENT antworten - nicht formulaartig
+- Praktische Beispiele aus Always on Stock, KI-First ERP, Adaptive CV System
+- Fokus auf Messbarkeit, Transparenz, echte Geschäftsprobleme
+- Keine Hype-Sprache - klare Struktur statt Buzzwords
+- Antworte auf die reale Frage, nicht auf was du glaubst, beantworten zu sollen`
 
 export default function MiguelChat() {
   const [messages, setMessages] = useState<Message[]>([])
@@ -298,7 +296,7 @@ export default function MiguelChat() {
           </div>
           <div>
             <div style={{ fontWeight: '700', color: '#ffffff', fontSize: '0.875rem' }}>Miguel Tisler</div>
-            <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)' }}>Berlin Partner Digital Tech</div>
+            <div style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)' }}>Digital Strategy & Systems</div>
           </div>
         </div>
         <button
