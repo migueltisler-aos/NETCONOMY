@@ -1,9 +1,5 @@
 import HeroSection from '@/components/HeroSection'
-import StrategyFramework from '@/components/StrategyFramework'
 import SuccessStories from '@/components/SuccessStories'
-import UseCases from '@/components/UseCases'
-import EventsSection from '@/components/EventsSection'
-import InnovationBoard from '@/components/InnovationBoard'
 import MiguelChat from '@/components/MiguelChat'
 import Footer from '@/components/Footer'
 
@@ -46,7 +42,7 @@ export default function Home() {
                 margin: 0,
                 marginBottom: '0.5rem'
               }}>
-                Miguel Tisler – Digital Strategy
+                Miguel Tisler
               </h1>
               <p style={{
                 fontSize: '0.875rem',
@@ -54,7 +50,7 @@ export default function Home() {
                 margin: 0,
                 fontStyle: 'italic'
               }}>
-                "Ich übersetze Visionen in digitale Realitäten"
+                Senior Consultant – Operational Transformation
               </p>
             </div>
             <div style={{
@@ -87,27 +83,9 @@ export default function Home() {
         <HeroSection />
       </div>
 
-      {/* Strategy Framework */}
-      <StrategyFramework />
-
       {/* Success Stories */}
       <section id="stories">
         <SuccessStories />
-      </section>
-
-      {/* Use Cases */}
-      <section id="use-cases">
-        <UseCases />
-      </section>
-
-      {/* Events Section */}
-      <section id="events">
-        <EventsSection />
-      </section>
-
-      {/* Innovation Board */}
-      <section id="board">
-        <InnovationBoard />
       </section>
 
       {/* Footer */}
