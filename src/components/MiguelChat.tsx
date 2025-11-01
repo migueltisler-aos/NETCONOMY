@@ -21,17 +21,17 @@ const renderMessageContent = (content: string) => {
     const kiAnswer = content.substring(0, miguelBoxMatch.index).trim()
     const boxAndContact = content.substring(miguelBoxMatch.index).trim()
 
-    // Extract email - multiple patterns
-    let email = 'miguel.tisler@netconomy.net' // default
-    const emailPatterns = [
-      /📧\s*([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/,
-      /([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})/,
+    // Extract phone/contact - no email default
+    let contact = '0177 - 879 56 37' // default
+    const contactPatterns = [
+      /📞\s*([0-9\s\-()]+)/,
+      /([0-9\s\-()]{10,})/,
     ]
 
-    for (const pattern of emailPatterns) {
+    for (const pattern of contactPatterns) {
       const match = boxAndContact.match(pattern)
       if (match) {
-        email = match[1].trim()
+        contact = match[1].trim()
         break
       }
     }
@@ -66,8 +66,8 @@ const renderMessageContent = (content: string) => {
             </div>
             <div style={{ color: 'rgba(255, 255, 255, 0.85)', whiteSpace: 'pre-wrap', wordBreak: 'break-word', marginBottom: '1rem' }}>{boxContent}</div>
             <div style={{ fontWeight: '700', color: '#60a5fa', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderTop: '1px solid rgba(59, 130, 246, 0.2)', paddingTop: '0.75rem' }}>
-              <span style={{ fontSize: '1rem' }}>📧</span>
-              <span>{email}</span>
+              <span style={{ fontSize: '1rem' }}>📞</span>
+              <span>{contact}</span>
             </div>
           </div>
         </div>
