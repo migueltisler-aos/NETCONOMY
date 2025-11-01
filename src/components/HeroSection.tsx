@@ -34,6 +34,54 @@ export default function HeroSection() {
         flexDirection: 'column',
         justifyContent: 'center'
       }}>
+        {/* Header Info */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+            marginBottom: '2rem',
+            paddingBottom: '1.5rem',
+            borderBottom: '1px solid rgba(59, 130, 246, 0.2)'
+          }}
+        >
+          <div>
+            <h1 style={{
+              fontSize: '1.75rem',
+              color: '#ffffff',
+              fontWeight: '700',
+              margin: 0,
+              marginBottom: '0.5rem'
+            }}>
+              Miguel Tisler
+            </h1>
+            <p style={{
+              fontSize: '0.95rem',
+              color: 'rgba(255, 255, 255, 0.7)',
+              margin: 0,
+              fontStyle: 'italic'
+            }}>
+              Senior Consultant – Operational Transformation
+            </p>
+          </div>
+          <div style={{
+            textAlign: 'right',
+            whiteSpace: 'nowrap'
+          }}>
+            <p style={{
+              fontSize: '0.875rem',
+              color: '#60a5fa',
+              margin: '0 0 0.5rem 0',
+              fontWeight: '600'
+            }}>
+              📞 0177 - 879 56 37
+            </p>
+          </div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
