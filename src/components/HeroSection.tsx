@@ -5,11 +5,21 @@ import { motion } from 'framer-motion'
 export default function HeroSection() {
   return (
     <section style={{ position: 'relative', minHeight: '80vh', overflow: 'hidden', paddingTop: '4rem', paddingBottom: '4rem' }}>
-      {/* Background Gradient */}
+      {/* Background Image */}
       <div style={{
         position: 'absolute',
         inset: 0,
-        backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.05) 100%)'
+        backgroundImage: 'url("https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80&blend=https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        opacity: 0.15
+      }} />
+
+      {/* Background Gradient Overlay */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        backgroundImage: 'linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(6, 182, 212, 0.15) 100%)'
       }} />
 
       {/* Content */}
