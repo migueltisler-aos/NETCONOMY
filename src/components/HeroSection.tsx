@@ -84,7 +84,7 @@ export default function HeroSection() {
                 lineHeight: '1.2'
               }}
             >
-              €15M+ Operationen
+              €60M+ Logistik gesteuert
               <span
                 style={{
                   display: 'block',
@@ -94,7 +94,7 @@ export default function HeroSection() {
                   color: 'transparent'
                 }}
               >
-                von Legacy zu KI-nativ
+                Turnarounds + Skalierung
               </span>
             </h1>
             <p
@@ -105,7 +105,7 @@ export default function HeroSection() {
                 lineHeight: '1.6'
               }}
             >
-              15+ Jahre operative Exzellenz + digitale Transformation. Nicht Consultant mit PowerPoints – sondern Operational Architect, der Legacy-Systeme in KI-native, selbstlernende Organisationen verwandelt. 95%+ Effizienzgewinne, messbar.
+              15+ Jahre operative Exzellenz in Logistik, Supply Chain & Geschäftsbetrieb. 220+ Mitarbeitende geleitet. Spezialisierung: Verluststopp→Profitabilität, Kostenreduktion, Prozessoptimierung. Von 7 Jahren Verlust zu schwarzer Null. Von 4% zu 0,2% Fehlerquote. Echte Zahlen, echte Impact.
             </p>
           </motion.div>
 
@@ -122,10 +122,10 @@ export default function HeroSection() {
             }}
           >
             {[
-              { label: 'Legacy→Digital Transformation', icon: '🔄' },
-              { label: '95%+ Effizienzgewinne', icon: '📈' },
-              { label: 'Operative Exzellenz (300+ MA)', icon: '⚙️' },
-              { label: 'EU AI Act + Compliance', icon: '🔐' },
+              { label: 'Turnarounds & Kostenreduktion', icon: '📉' },
+              { label: '+95% Produktivität, -123% Kosten', icon: '📈' },
+              { label: '220+ Mitarbeitende geleitet', icon: '👥' },
+              { label: 'WMS, ERP, KPI-Systeme', icon: '⚙️' },
             ].map((competency, idx) => (
               <motion.div
                 key={idx}

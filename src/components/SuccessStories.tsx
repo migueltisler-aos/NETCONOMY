@@ -4,14 +4,14 @@ import { motion } from 'framer-motion'
 
 const stories = [
   {
-    title: 'Radeberger Gruppe: Von €9M Volumen zu Profitabilität',
-    challenge: 'Legacy-WMS, manuelle Prozesse, 7 Jahre Verluste bei Schwester-Gesellschaft (Warsteiner)',
-    solution: 'Neuaufbau operative Infrastruktur: WMS, Automatisierung, KPI-Dashboards, Datenarchitektur',
-    result: 'Radeberger: €9M+ Volumen stabil + profitabel. Warsteiner: 7 Jahre Verlust → Profitabilität in 18 Mo.',
+    title: 'Warsteiner Distribution: Turnaround nach 7 Jahren Verlust',
+    challenge: '7 Jahre kontinuierliche Verluste, €20M Gesamtvolumen, Verwaltungsineffizienzen, alte Verträge mit EK>VK',
+    solution: 'Turnaround-Programm: Vertragsneuverhandlung, Personaloptimierung, Neueinstellungen, Webshop-Integration',
+    result: 'Schwarze Null nach EBITDA erreicht, Zustellvolumen +9%, Rentabilität wiederhergestellt',
     metrics: [
-      { label: 'Volumen gesteuert', value: '€9M+' },
-      { label: 'Turnaround', value: '18 Mo.' },
-      { label: 'Team geleitet', value: '150+ MA' },
+      { label: 'Gesamtvolumen', value: '€20M' },
+      { label: 'Ergebnis', value: 'Break-Even' },
+      { label: 'Wachstum', value: '+9%' },
     ]
   },
   {
@@ -26,14 +26,14 @@ const stories = [
     ]
   },
   {
-    title: 'Bilstein Group: Digital-First Operations Leadership',
-    challenge: 'Dezentralisiert, keine einheitlichen Prozesse, Legacy IT, fehlende Datenvisibilität',
-    solution: 'Enterprise Datenarchitektur, ERP-Integration, KPI-Management System, Prozess-Standardisierung',
-    result: 'Einheitliche Operational Metrics, +35% Effizienzsteigerung, 24/7 Datenvisibilität, Wachstum ohne Kostenexplosion',
+    title: 'Radeberger Gruppe: COVID-Pivot von B2B zu B2C in 3 Wochen',
+    challenge: 'Pandemie-Schock: B2B-Paketdienst kollabiert, 90% Umsatz weggebrochen, bestehende Kapazität nutzlos, Personalabbau drohte',
+    solution: 'Notfall-Restrukturierung: 43 Minijobber in 3 Wochen aufgebaut, GPS-Tracking für automatische Kundenzuordnung, Fuhrpark-Upgrade (12t→18t), Lagerlayout-Umbau, Direktbezug beim Hersteller',
+    result: '97% B2C-Quote erreicht, profitabel, Erlös pro Tour +18%, ROI Lagerlayout 4 Monate, Direktbezug spart €63k/Monat',
     metrics: [
-      { label: 'Team geleitet', value: '200+ MA' },
-      { label: 'Effizienz-Plus', value: '+35%' },
-      { label: 'Data Visibility', value: '100%' },
+      { label: 'B2B→B2C Shift', value: '90%→97%' },
+      { label: 'Erlös/Tour', value: '+18%' },
+      { label: 'Kostenersparnis', value: '€63k/Mo' },
     ]
   },
 ]
