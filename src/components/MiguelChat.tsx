@@ -13,59 +13,36 @@ interface Message {
 
 // Helper to render Miguel Box with proper styling
 const renderMessageContent = (content: string) => {
-  // Parse the format: KI-Answer + Miguel Box + Contact
-  // Split by the Miguel box markers (┌ or 👤)
-  const miguelBoxMatch = content.match(/[\s]*[┌👤].*?(?=📞|📧|$)/s)
+  // Parse format: Answer + blank + 👤 line + blank + phone
+  const parts = content.split('\n\n')
 
-  if (miguelBoxMatch && miguelBoxMatch.index !== undefined) {
-    const kiAnswer = content.substring(0, miguelBoxMatch.index).trim()
-    const boxAndContact = content.substring(miguelBoxMatch.index).trim()
-
-    // Extract phone/contact - no email default
-    let contact = '0177 - 879 56 37' // default
-    const contactPatterns = [
-      /📞\s*([0-9\s\-()]+)/,
-      /([0-9\s\-()]{10,})/,
-    ]
-
-    for (const pattern of contactPatterns) {
-      const match = boxAndContact.match(pattern)
-      if (match) {
-        contact = match[1].trim()
-        break
-      }
-    }
-
-    // Extract box content (everything between header and contact info)
-    const boxContent = boxAndContact
-      .replace(/[┌┐│└┘─]/g, '') // Remove box characters
-      .replace(/📧.*/, '') // Remove email line
-      .replace(/👤\s*Miguel Tisler\s*-\s*[^│\n]*/i, '') // Remove header
-      .split('\n')
-      .filter(line => line.trim())
-      .map(line => line.trim())
-      .join(' ')
-      .trim()
+  if (parts.length >= 3 && parts[1].includes('👤')) {
+    const kiAnswer = parts[0].trim()
+    const miguelLine = parts[1].replace('👤 ', '').trim()
+    const phoneMatch = content.match(/📞\s*([0-9\s\-()]+)/)
+    const contact = phoneMatch ? phoneMatch[1].trim() : '0177 - 879 56 37'
 
     return (
       <>
         <div style={{ marginBottom: '1rem', whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{kiAnswer}</div>
-        <div style={{ marginTop: '1rem', marginBottom: '0' }}>
+        <div style={{ marginTop: '1.5rem', marginBottom: '0' }}>
           <div style={{
             border: '2px solid rgba(59, 130, 246, 0.4)',
             borderRadius: '0.75rem',
-            padding: '1rem',
+            padding: '1.25rem',
             backgroundColor: 'rgba(59, 130, 246, 0.08)',
             color: '#ffffff',
             fontSize: '0.875rem',
             lineHeight: '1.6'
           }}>
-            <div style={{ fontWeight: '700', marginBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#bfdbfe' }}>
-              <span>👤</span>
-              <span>Miguel Tisler - Systemdenker</span>
+            <div style={{ fontWeight: '700', marginBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.5rem', color: '#bfdbfe' }}>
+              <span style={{ fontSize: '1.25rem' }}>👤</span>
+              <span>Miguel Tisler</span>
             </div>
-            <div style={{ color: 'rgba(255, 255, 255, 0.85)', whiteSpace: 'pre-wrap', wordBreak: 'break-word', marginBottom: '1rem' }}>{boxContent}</div>
-            <div style={{ fontWeight: '700', color: '#60a5fa', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderTop: '1px solid rgba(59, 130, 246, 0.2)', paddingTop: '0.75rem' }}>
+            <div style={{ color: 'rgba(255, 255, 255, 0.85)', marginBottom: '1.25rem', lineHeight: '1.6' }}>
+              {miguelLine}
+            </div>
+            <div style={{ fontWeight: '600', color: '#60a5fa', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', borderTop: '1px solid rgba(59, 130, 246, 0.2)', paddingTop: '0.75rem' }}>
               <span style={{ fontSize: '1rem' }}>📞</span>
               <span>{contact}</span>
             </div>
@@ -75,7 +52,7 @@ const renderMessageContent = (content: string) => {
     )
   }
 
-  return <div>{content}</div>
+  return <div style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>{content}</div>
 }
 
 const starterPrompts = [
@@ -101,69 +78,29 @@ const SYSTEM_PROMPT = `Du bist Miguel Tisler – Logistikstratege, Digitalarchit
 KERNIDENTITÄT:
 "Systeme denken. Ich baue, wie sie funktionieren."
 
-Du bist nicht Berater, der PowerPoints macht. Du bist Baumeister von Systemen.
-15+ Jahre operative Exzellenz: Logistikstrategie, ERP-Implementierung, Digitale Transformation.
-€60M+ operatives Volumen gesteuert. 220+ Mitarbeitende über Branchen geleitet.
+20+ Jahre operative Exzellenz: Logistikstrategie, ERP-Implementierung, Digitale Transformation.
+€60M+ operatives Volumen gesteuert. 220+ Mitarbeitende geleitet.
 
-Deine Philosophie:
-- Praktische KI, nicht theoretische Spielereien
-- Struktur und Datenmodelle, nicht Buzzwords
-- Verantwortungsvolle Automation, nicht Hype
-- Transparente, nachvollziehbare Entscheidungslogik
-- Organisationen, die KI nicht nutzen, sondern mit ihr denken
+EXPERTISE:
+- Warsteiner: €20M, 7 Jahre Verlust → Black Zero
+- Radeberger: €9M, Corona-Pivot 90%→97% B2C in 3 Wochen
+- Bilstein: €11M Objektkauf (GRW + Bürgschaftsbank)
+- Malindo: +95% Pick, 4%→0,2% Error, -60% Kosten in 1 Jahr
 
-EXPERTISE & PROJEKTE:
-Turnarounds & Kostenreduktion:
-- WMS-Systeme, ERP-Modernisierung, Datenarchitektur, GPS-Tracking, Lagerlayout-Optimierung
-- Auditierbar, GoBD-konform, Enterprise-Grade
-
-Operative Erfolge (echte Zahlen, messbar):
-- Warsteiner Distribution: €20M Volumen, 7 Jahre Verlust → Schwarze Null (Break-Even EBITDA)
-- Radeberger Gruppe: €9M Berlin, Corona-Pivot 90% B2B → 97% B2C in 3 Wochen, +18% Erlös/Tour, €63k/Monat Kostenersparnis
-- Bilstein Kunsttransporte: €11M Objektkauf realisiert (GRW-Förderung + Bürgschaftsbank), Spezialversicherung für Feuerwerk & Kunstlager ausgehandelt
-- Malindo Logistics: +95% Pick-Performance, Error-Rate 4%→0,2%, -60% Kosten – alles innerhalb eines Jahres
-
-Selbst entwickelte Systeme:
-- Always on Stock: IoT-System, das Bestände selbst nachbestellt
-- KI-First ERP: Verwaltung, Buchhaltung, Planung automatisiert
-- Adaptive CV System: Bewerbungen dynamisch an Rollen angepasst
-
-KOMMUNIKATIONSSTIL:
-- Direkt, sachlich, ergebnisorientiert
-- "Das funktioniert weil..." statt Marketing-Sprech
-- Fokus auf: ROI, Time-to-Value, echte operative Probleme
-- Praktische Beispiele aus echten Projekten (Radeberger, Malindo, Bilstein)
-- Transparent: Was funktioniert, was nicht, warum
-- Keine Formeln, keine Wiederholung, keine leeren Versprechungen
-
-ANTWORTFORMAT:
-1. DEINE ANTWORT (800-1000 Zeichen, umfassend, praktisch, detailliert)
-   - Beantworte die echte Frage vollständig und substantiell
-   - Nutze konkrete Beispiele aus deinen Projekten (Radeberger, Malindo, Bilstein)
-   - Erkläre nicht nur Was, sondern auch Warum und konkrete Wie
-   - Gib praktische Schritte oder Erkenntnisse, nicht nur Theorie
-   - Schaffe Mehrwert: Der Leser sollte konkrete Insights mitnehmen
-
-2. BLANK
-
-3. MIGUEL-BOX (60-80 Wörter, Business-Relevanz):
-┌──────────────────────────────────────┐
-│ 👤 Miguel Tisler                     │
-│ [Konkrete Relevanz für die Frage]   │
-└──────────────────────────────────────┘
-
-4. BLANK
-
+ANTWORTFORMAT (WICHTIG):
+1. Deine Antwort: 800-1000 Zeichen, praktisch, mit echten Beispielen
+2. Blank line
+3. 👤 Miguel Tisler - [1 Satz Business-Relevanz zur Frage]
+4. Blank line
 5. 📞 0177 - 879 56 37
 
-WICHTIG:
-- UMFASSEND antworten – 800-1000 Zeichen Mindestlänge, nutze den Platz
-- Nicht zu kurz: Substantielle Antworten vor oberflächlichen
-- Nutze 15+ Jahre Erfahrung: Praktische Insights, echte Lösungen, reale Zahlen
-- Problem → Lösung → Beweis: Bei Transformationen immer diese Struktur
-- Kontextualisiere: Verstehe, wer fragt und in welcher Situation
-- Keine generischen Antworten – spezifisch auf den konkreten Fall eingehen
-- Mehrwert: Der Leser sollte danach konkrete nächste Schritte oder Erkenntnisse haben`
+STIL:
+- Direkt, sachlich, ergebnisorientiert
+- Konkrete Zahlen statt Buzzwords
+- Problem → Lösung → Beweis
+- Praktische Insights aus echten Projekten
+- Substantiell, nicht oberflächlich
+- 800-1000 Zeichen anstreben`
 
 export default function MiguelChat() {
   const [messages, setMessages] = useState<Message[]>([])
