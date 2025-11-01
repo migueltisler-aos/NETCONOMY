@@ -4,36 +4,36 @@ import { motion } from 'framer-motion'
 
 const stories = [
   {
-    title: 'Mittelständischer Logistik-Betrieb',
-    challenge: 'Manuelle Bestandsverwaltung mit Ineffizienzen, häufige Fehlbestände',
-    solution: 'IoT-basiertes Nachbestellungssystem mit automatischer Bestandsoptimierung',
-    result: 'Bestandskosten um 32% gesenkt, Fehlbestandsrate auf 2% reduziert',
+    title: 'Radeberger Gruppe: Von €9M Volumen zu Profitabilität',
+    challenge: 'Legacy-WMS, manuelle Prozesse, 7 Jahre Verluste bei Schwester-Gesellschaft (Warsteiner)',
+    solution: 'Neuaufbau operative Infrastruktur: WMS, Automatisierung, KPI-Dashboards, Datenarchitektur',
+    result: 'Radeberger: €9M+ Volumen stabil + profitabel. Warsteiner: 7 Jahre Verlust → Profitabilität in 18 Mo.',
     metrics: [
-      { label: 'Kostenersparnis', value: '-32%' },
-      { label: 'Fehlbestandsrate', value: '-89%' },
-      { label: 'Prozessautomation', value: '95%' },
+      { label: 'Volumen gesteuert', value: '€9M+' },
+      { label: 'Turnaround', value: '18 Mo.' },
+      { label: 'Team geleitet', value: '150+ MA' },
     ]
   },
   {
-    title: 'Mittelständisches Produktionsunternehmen',
-    challenge: 'Fragmentierte Verwaltungsprozesse über 5 verschiedene Systeme',
-    solution: 'Einheitliche KI-First ERP mit vollständiger Datensynthese',
-    result: 'Prozesskosten um 28% reduziert, Prozesszeiten um 62% beschleunigt',
+    title: 'Malindo Logistics: 3PL→Insourcing Transformation',
+    challenge: 'Abhängigkeit vom 3PL-Partner, keine Datenhoheit, -123% höhere Kosten vs. intern',
+    solution: 'Ship & Store WMS, automatisierte Kennzeichenerfassung, KPI-Operationen, MA-Upskilling',
+    result: '+95% Pick-Performance, Error-Rate 4% → 0,2%, Kostenparität erreicht, 10.000m² Expansion-ready',
     metrics: [
-      { label: 'Prozesskosten', value: '-28%' },
-      { label: 'Prozesszeiten', value: '-62%' },
-      { label: 'Datensynthese', value: '100%' },
+      { label: 'Pick-Performance', value: '+95%' },
+      { label: 'Error-Rate', value: '4% → 0.2%' },
+      { label: 'Kostenreduktion', value: '-60%' },
     ]
   },
   {
-    title: 'Tech-Startup mit Recruiting-Bottleneck',
-    challenge: 'CV-Screening dauerte 8 Stunden pro Tag, viele falsche Kandidaten',
-    solution: 'Adaptive CV-Matching-Systeme mit dynamischen Rollenprofilen',
-    result: 'CV-Screening auf 45 Minuten pro Tag reduziert, Matching-Genauigkeit 94%',
+    title: 'Bilstein Group: Digital-First Operations Leadership',
+    challenge: 'Dezentralisiert, keine einheitlichen Prozesse, Legacy IT, fehlende Datenvisibilität',
+    solution: 'Enterprise Datenarchitektur, ERP-Integration, KPI-Management System, Prozess-Standardisierung',
+    result: 'Einheitliche Operational Metrics, +35% Effizienzsteigerung, 24/7 Datenvisibilität, Wachstum ohne Kostenexplosion',
     metrics: [
-      { label: 'Screening-Zeit', value: '-94%' },
-      { label: 'Matching-Genauigkeit', value: '94%' },
-      { label: 'Candidate Quality', value: '+41%' },
+      { label: 'Team geleitet', value: '200+ MA' },
+      { label: 'Effizienz-Plus', value: '+35%' },
+      { label: 'Data Visibility', value: '100%' },
     ]
   },
 ]
@@ -79,7 +79,7 @@ export default function SuccessStories() {
             backgroundColor: 'rgba(255, 255, 255, 0.05)',
             border: '1px solid rgba(255, 255, 255, 0.1)',
           }}>
-            <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'rgba(255, 255, 255, 0.6)' }}>Proof of Concept</span>
+            <span style={{ fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em', color: 'rgba(255, 255, 255, 0.6)' }}>Case Studies</span>
           </div>
           <h2 style={{
             fontSize: 'clamp(2rem, 8vw, 3rem)',
@@ -87,7 +87,7 @@ export default function SuccessStories() {
             color: '#ffffff',
             marginBottom: '1rem'
           }}>
-            Praktische Erfolgsbeispiele
+            €15M+ operative Transformation
           </h2>
           <p style={{
             fontSize: '1.125rem',
@@ -95,7 +95,7 @@ export default function SuccessStories() {
             maxWidth: '42rem',
             margin: '0 auto'
           }}>
-            Anonymisierte Case Studies zeigen, wie das Framework in der Praxis funktioniert
+            Radeberger, Malindo, Bilstein: Wie Legacy-Operationen in KI-native, selbstlernende Systeme transformiert werden
           </p>
         </motion.div>
 

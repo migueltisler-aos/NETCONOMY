@@ -65,7 +65,7 @@ export default function HeroSection() {
                 color: '#bfdbfe'
               }}
             >
-              Digital Strategy Consultant
+              Operational Transformation + Digital Strategy
             </span>
           </motion.div>
 
@@ -84,7 +84,7 @@ export default function HeroSection() {
                 lineHeight: '1.2'
               }}
             >
-              Visionen in
+              €15M+ Operationen
               <span
                 style={{
                   display: 'block',
@@ -94,7 +94,7 @@ export default function HeroSection() {
                   color: 'transparent'
                 }}
               >
-                digitale Realitäten
+                von Legacy zu KI-nativ
               </span>
             </h1>
             <p
@@ -105,7 +105,7 @@ export default function HeroSection() {
                 lineHeight: '1.6'
               }}
             >
-              5+ Jahre Erfahrung darin, komplexe Technologien in kundenrelevante Geschäftsstrategien zu übersetzen. Als Brückenbauer zwischen Business und Tech entwickle ich innovative digitale Lösungen, die messbare Ergebnisse liefern.
+              15+ Jahre operative Exzellenz + digitale Transformation. Nicht Consultant mit PowerPoints – sondern Operational Architect, der Legacy-Systeme in KI-native, selbstlernende Organisationen verwandelt. 95%+ Effizienzgewinne, messbar.
             </p>
           </motion.div>
 
@@ -122,10 +122,10 @@ export default function HeroSection() {
             }}
           >
             {[
-              { label: 'Strategische Digitalberatung', icon: '🎯' },
-              { label: 'Business-Tech Translation', icon: '🔄' },
-              { label: 'Innovationsworkshops', icon: '💡' },
-              { label: 'KPI-getriebene Lösungen', icon: '📊' },
+              { label: 'Legacy→Digital Transformation', icon: '🔄' },
+              { label: '95%+ Effizienzgewinne', icon: '📈' },
+              { label: 'Operative Exzellenz (300+ MA)', icon: '⚙️' },
+              { label: 'EU AI Act + Compliance', icon: '🔐' },
             ].map((competency, idx) => (
               <motion.div
                 key={idx}
@@ -164,7 +164,7 @@ export default function HeroSection() {
             }}
           >
             <a
-              href="#strategy"
+              href="#stories"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -185,7 +185,7 @@ export default function HeroSection() {
               onMouseOver={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
               onMouseOut={(e) => (e.currentTarget.style.transform = 'scale(1)')}
             >
-              Strategy Framework entdecken
+              Case Studies ansehen
               <span>→</span>
             </a>
             <a
@@ -211,7 +211,7 @@ export default function HeroSection() {
               onMouseOver={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)')}
               onMouseOut={(e) => (e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)')}
             >
-              Mit Miguel's Mind chatten
+              Tech-Stack & Projekte
             </a>
           </motion.div>
         </motion.div>
