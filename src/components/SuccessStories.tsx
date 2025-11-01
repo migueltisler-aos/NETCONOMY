@@ -4,10 +4,10 @@ import { motion } from 'framer-motion'
 
 const stories = [
   {
-    title: 'Warsteiner Distribution: Turnaround nach 7 Jahren Verlust',
-    challenge: '7 Jahre kontinuierliche Verluste, €20M Gesamtvolumen, Verwaltungsineffizienzen, alte Verträge mit EK>VK',
-    solution: 'Turnaround-Programm: Vertragsneuverhandlung, Personaloptimierung, Neueinstellungen, Webshop-Integration',
-    result: 'Schwarze Null nach EBITDA erreicht, Zustellvolumen +9%, Rentabilität wiederhergestellt',
+    title: 'Warsteiner Distribution: Digital Turnaround nach 7 Jahren Verlust',
+    challenge: '7 Jahre kontinuierliche Verluste, €20M Gesamtvolumen, Legacy-Systeme, manuelle Prozesse, Verwaltungsineffizienzen',
+    digitalSolution: 'Digitale Vertragsverwaltung, automatisierte Prozesse, Webshop-Integration, KPI-Dashboard',
+    operationalResult: 'Schwarze Null nach EBITDA erreicht, Zustellvolumen +9%, vollständige Rentabilität',
     metrics: [
       { label: 'Gesamtvolumen', value: '€20M' },
       { label: 'Ergebnis', value: 'Break-Even' },
@@ -15,10 +15,10 @@ const stories = [
     ]
   },
   {
-    title: 'Malindo Logistics: 3PL→Insourcing Transformation',
-    challenge: 'Abhängigkeit vom 3PL-Partner, keine Datenhoheit, -123% höhere Kosten vs. intern',
-    solution: 'Ship & Store WMS, automatisierte Kennzeichenerfassung, KPI-Operationen, MA-Upskilling',
-    result: '+95% Pick-Performance, Error-Rate 4% → 0,2%, Kostenparität erreicht, 10.000m² Expansion-ready',
+    title: 'Malindo Logistics: 3PL→Insourcing Digital Transformation',
+    challenge: 'Abhängigkeit vom 3PL-Partner, keine Datenhoheit, Legacy-Systeme, hohe externe Kosten',
+    digitalSolution: 'Ship & Store WMS, automatisierte Kennzeichenerfassung, KPI-Operations Dashboard, digitale Prozesssteuerung',
+    operationalResult: '+95% Pick-Performance, Error-Rate 4% → 0,2%, Kostenparität erreicht, 10.000m² Expansion-ready',
     metrics: [
       { label: 'Pick-Performance', value: '+95%' },
       { label: 'Error-Rate', value: '4% → 0.2%' },
@@ -26,10 +26,10 @@ const stories = [
     ]
   },
   {
-    title: 'Radeberger Gruppe: COVID-Pivot von B2B zu B2C in 3 Wochen',
-    challenge: 'Pandemie-Schock: B2B-Paketdienst kollabiert, 90% Umsatz weggebrochen, bestehende Kapazität nutzlos, Personalabbau drohte',
-    solution: 'Notfall-Restrukturierung: 43 Minijobber in 3 Wochen aufgebaut, GPS-Tracking für automatische Kundenzuordnung, Fuhrpark-Upgrade (12t→18t), Lagerlayout-Umbau, Direktbezug beim Hersteller',
-    result: '97% B2C-Quote erreicht, profitabel, Erlös pro Tour +18%, ROI Lagerlayout 4 Monate, Direktbezug spart €63k/Monat',
+    title: 'Radeberger Gruppe: COVID-Pivot B2B→B2C Digital Transformation',
+    challenge: 'Pandemie-Schock: B2B-System kollabiert, 90% Umsatz weggebrochen, Legacy-Infrastruktur ungeeignet für B2C',
+    digitalSolution: 'Notfall-Digitalisierung: GPS-Tracking Ecosystem, automatische Kundenzuordnung, digitale Routenplanung, selbstlernende Tourenoptimierung',
+    operationalResult: '97% B2C-Quote erreicht, profitabel, Erlös pro Tour +18%, ROI Lagerlayout 4 Monate',
     metrics: [
       { label: 'B2B→B2C Shift', value: '90%→97%' },
       { label: 'Erlös/Tour', value: '+18%' },
@@ -165,28 +165,28 @@ export default function SuccessStories() {
                 </p>
               </div>
 
-              {/* Solution */}
+              {/* Digital Solution */}
               <div style={{ marginBottom: '1.5rem' }}>
                 <p style={{
                   fontSize: '0.75rem',
                   textTransform: 'uppercase',
                   letterSpacing: '0.05em',
-                  color: 'rgba(255, 255, 255, 0.5)',
+                  color: '#60a5fa',
                   marginBottom: '0.5rem',
                   fontWeight: '600'
                 }}>
-                  Solution
+                  Digital Solution
                 </p>
                 <p style={{
                   fontSize: '0.875rem',
                   color: 'rgba(255, 255, 255, 0.8)',
                   lineHeight: '1.5'
                 }}>
-                  {story.solution}
+                  {story.digitalSolution}
                 </p>
               </div>
 
-              {/* Result */}
+              {/* Operational Result */}
               <div style={{ marginBottom: '1.5rem', flexGrow: 1 }}>
                 <p style={{
                   fontSize: '0.75rem',
@@ -196,7 +196,7 @@ export default function SuccessStories() {
                   marginBottom: '0.5rem',
                   fontWeight: '600'
                 }}>
-                  Result
+                  Operational Result
                 </p>
                 <p style={{
                   fontSize: '0.875rem',
@@ -204,7 +204,7 @@ export default function SuccessStories() {
                   fontWeight: '600',
                   lineHeight: '1.5'
                 }}>
-                  {story.result}
+                  {story.operationalResult}
                 </p>
               </div>
 

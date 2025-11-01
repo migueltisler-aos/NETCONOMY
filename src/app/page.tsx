@@ -1,6 +1,9 @@
 import HeroSection from '@/components/HeroSection'
 import SuccessStories from '@/components/SuccessStories'
 import FeaturedSpeaking from '@/components/FeaturedSpeaking'
+import DigitalStrategyApproach from '@/components/DigitalStrategyApproach'
+import TechnologyExpertise from '@/components/TechnologyExpertise'
+import CallToAction from '@/components/CallToAction'
 import MiguelChat from '@/components/MiguelChat'
 import Footer from '@/components/Footer'
 
@@ -25,6 +28,21 @@ export default function Home() {
       {/* Featured Speaking */}
       <section id="speaking">
         <FeaturedSpeaking />
+      </section>
+
+      {/* Digital Strategy Approach */}
+      <section id="approach">
+        <DigitalStrategyApproach />
+      </section>
+
+      {/* Technology Expertise */}
+      <section id="technology">
+        <TechnologyExpertise />
+      </section>
+
+      {/* Call to Action */}
+      <section id="contact">
+        <CallToAction />
       </section>
 
       {/* Footer */}

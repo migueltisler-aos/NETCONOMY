@@ -69,16 +69,42 @@ export default function HeroSection() {
           </div>
           <div style={{
             textAlign: 'right',
-            whiteSpace: 'nowrap'
+            whiteSpace: 'nowrap',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '0.75rem'
           }}>
             <p style={{
               fontSize: '0.875rem',
               color: '#60a5fa',
-              margin: '0 0 0.5rem 0',
+              margin: 0,
               fontWeight: '600'
             }}>
               📞 0177 - 879 56 37
             </p>
+            <p style={{
+              fontSize: '0.875rem',
+              color: 'rgba(255, 255, 255, 0.6)',
+              margin: 0
+            }}>
+              📧 miguel.tisler@gmx.de
+            </p>
+            <a
+              href="https://www.linkedin.com/in/miguel-tisler-0a2976120/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: '0.875rem',
+                color: '#60a5fa',
+                textDecoration: 'none',
+                fontWeight: '600',
+                transition: 'color 200ms'
+              }}
+              onMouseOver={(e) => (e.currentTarget.style.color = '#06b6d4')}
+              onMouseOut={(e) => (e.currentTarget.style.color = '#60a5fa')}
+            >
+              🔗 LinkedIn
+            </a>
           </div>
         </motion.div>
 
@@ -163,7 +189,17 @@ export default function HeroSection() {
                 lineHeight: '1.6'
               }}
             >
-              20+ Jahre operative Exzellenz in Logistik, Supply Chain & Geschäftsbetrieb. 220+ Mitarbeitende geleitet. Spezialisierung: Verluststopp→Profitabilität, Kostenreduktion, Prozessoptimierung. Von 7 Jahren Verlust zu schwarzer Null, innerhalb 1 Jahres. Von 4% zu 0,2% Fehlerquote. Echte Zahlen, echte Impact.
+              20+ Jahre operative Exzellenz in Logistik, Supply Chain & Geschäftsbetrieb. 220+ Mitarbeitende geleitet. Brückenbauer zwischen Business & Tech – übersetze operative Exzellenz in digitale Strategien.
+            </p>
+            <p
+              style={{
+                fontSize: '0.95rem',
+                color: 'rgba(255, 255, 255, 0.7)',
+                maxWidth: '50rem',
+                lineHeight: '1.6'
+              }}
+            >
+              Spezialisierung: Verluststopp→Profitabilität, Kostenreduktion, Prozessoptimierung, digitale Transformation. Von 7 Jahren Verlust zu schwarzer Null (innerhalb 1 Jahr). Von 4% zu 0,2% Fehlerquote. Legacy-Systeme zu KI-nativen, selbstlernenden Operationen. Echte Zahlen, echte Impact.
             </p>
           </motion.div>
 
@@ -180,10 +216,10 @@ export default function HeroSection() {
             }}
           >
             {[
-              { label: 'Turnarounds & Kostenreduktion', icon: '📉' },
-              { label: '+95% Produktivität, -123% Kosten', icon: '📈' },
-              { label: '220+ Mitarbeitende geleitet', icon: '👥' },
-              { label: 'WMS, ERP, KPI-Systeme', icon: '⚙️' },
+              { label: 'Operations-First Digital Strategy', icon: '🎯' },
+              { label: 'Business-Tech Translation', icon: '🔗' },
+              { label: '+95% Produktivität, -60% Kosten', icon: '📈' },
+              { label: '220+ MA geleitet, €60M+ Volumen', icon: '👥' },
             ].map((competency, idx) => (
               <motion.div
                 key={idx}
