@@ -137,13 +137,6 @@ export default function Footer() {
               Get in Touch
             </h4>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', fontSize: '0.875rem' }}>
-              <a href="mailto:miguel.tisler@gmx.de" style={{
-                color: 'rgba(255, 255, 255, 0.55)',
-                textDecoration: 'none',
-                transition: 'color 200ms'
-              }} onMouseOver={(e) => (e.currentTarget.style.color = '#ffffff')} onMouseOut={(e) => (e.currentTarget.style.color = 'rgba(255, 255, 255, 0.55)')}>
-                📧 miguel.tisler@gmx.de
-              </a>
               <a href="tel:+4917787956337" style={{
                 color: 'rgba(255, 255, 255, 0.55)',
                 textDecoration: 'none',

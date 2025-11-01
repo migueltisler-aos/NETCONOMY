@@ -105,7 +105,7 @@ export default function HeroSection() {
                 lineHeight: '1.6'
               }}
             >
-              15+ Jahre operative Exzellenz in Logistik, Supply Chain & Geschäftsbetrieb. 220+ Mitarbeitende geleitet. Spezialisierung: Verluststopp→Profitabilität, Kostenreduktion, Prozessoptimierung. Von 7 Jahren Verlust zu schwarzer Null. Von 4% zu 0,2% Fehlerquote. Echte Zahlen, echte Impact.
+              20+ Jahre operative Exzellenz in Logistik, Supply Chain & Geschäftsbetrieb. 220+ Mitarbeitende geleitet. Spezialisierung: Verluststopp→Profitabilität, Kostenreduktion, Prozessoptimierung. Von 7 Jahren Verlust zu schwarzer Null, innerhalb 1 Jahres. Von 4% zu 0,2% Fehlerquote. Echte Zahlen, echte Impact.
             </p>
           </motion.div>
 
