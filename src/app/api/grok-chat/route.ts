@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         ...messages,
       ],
       temperature: 0.7,
-      max_tokens: 2048,
+      max_tokens: 4000,
     })
 
     const content = response.choices[0]?.message?.content || 'Keine Antwort erhalten'
