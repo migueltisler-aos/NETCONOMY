@@ -6,14 +6,16 @@ export default function FeaturedSpeaking() {
   const videos = [
     {
       year: '2020',
-      title: 'Logistikleiter:innen-Panel',
-      description: 'Crisis Management & Transformation in Real Time',
+      title: 'Logistikleiter:innen-Panel – Logistics Summit',
+      subtitle: 'Radeberger Gruppe (Getränke Hoffmann)',
+      description: 'Corona-Krise: +200-500% Nachfrage, Kapazitätsmanagement, Mitarbeiter unter Druck',
       youtubeId: 'dVMr_7RXriU'
     },
     {
       year: '2021',
-      title: 'Logistikleiter:innen-Panel',
-      description: 'Lessons Learned: Von Krise zu operativer Exzellenz',
+      title: 'Logistikleiter:innen-Panel – Logistics Summit',
+      subtitle: 'Radeberger Gruppe (Getränke Hoffmann)',
+      description: 'Von Krise zu Exzellenz: Digitalisierung, Tourenplanung, Nachhaltigkeit',
       youtubeId: '12BtcihJUqM?t=973'
     }
   ]
@@ -59,7 +61,7 @@ export default function FeaturedSpeaking() {
             lineHeight: '1.6',
             margin: 0
           }}>
-            Gedankenführerschaft in Krisenzeiten und operativer Transformation. Panel-Teilnahmen beim Logistics Summit 2020 & 2021.
+            Live Case Studies: Radeberger Gruppe (Getränke Hoffmann) auf dem Logistics Summit 2020 & 2021. Von Corona-Krise zu operativer Exzellenz – direkt vom Logistikleiter selbst präsentiert.
           </p>
         </motion.div>
 
@@ -140,6 +142,15 @@ export default function FeaturedSpeaking() {
                 }}>
                   {video.title}
                 </h3>
+                <p style={{
+                  fontSize: '0.9rem',
+                  color: '#60a5fa',
+                  fontWeight: '600',
+                  margin: 0,
+                  lineHeight: '1.4'
+                }}>
+                  {video.subtitle}
+                </p>
                 <p style={{
                   fontSize: '0.875rem',
                   color: 'rgba(255, 255, 255, 0.65)',
