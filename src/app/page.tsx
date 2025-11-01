@@ -1,5 +1,6 @@
 import HeroSection from '@/components/HeroSection'
 import SuccessStories from '@/components/SuccessStories'
+import FeaturedSpeaking from '@/components/FeaturedSpeaking'
 import MiguelChat from '@/components/MiguelChat'
 import Footer from '@/components/Footer'
 
@@ -86,6 +87,11 @@ export default function Home() {
       {/* Success Stories */}
       <section id="stories">
         <SuccessStories />
+      </section>
+
+      {/* Featured Speaking */}
+      <section id="speaking">
+        <FeaturedSpeaking />
       </section>
 
       {/* Footer */}
